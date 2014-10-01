@@ -1,0 +1,134 @@
+\typeout{Document Style [Jan: Styl nr.1] <07/10/91>}
+
+\def\part{\cleardoublepage   % Starts new page.
+   \thispagestyle{empty}     % Page style of part page is 'empty'
+  \if@twocolumn              % IF two-column style
+     \onecolumn              %  THEN \onecolumn
+     \@tempswatrue           %       @tempswa := true
+    \else \@tempswafalse     %  ELSE @tempswa := false
+  \fi                        % FI
+  \hbox{}\vfil               % Add fil glue to center title
+  \secdef\@part\@spart}
+
+\def\undertext#1{$\underline{\smash{\hbox{#1}}}$}
+
+\def\ps@myheadings{\let\@mkboth\markboth
+\def\@oddfoot{}\def\@evenfoot{}%              No feet.
+\def\@evenhead{\kern-\evensidemargin%         Left heading.
+\underline{\strut\hbox to\hsize{\sl\leftmark\hss}}%
+\underline{\strut\hbox to\evensidemargin{\hss\rm\thepage}}%
+%\undertext{\hbox to\evensidemargin{\rm\thepage\hss}}%
+%\undertext{\hbox to\hsize{\hss\sl\leftmark}}%
+\kern-\evensidemargin}
+\def\@oddhead{\kern-\oddsidemargin%           Right heading.
+\underline{\strut\hbox to\hsize{\sl\rightmark\hss}}%
+\underline{\strut\hbox to\evensidemargin{\hss\rm\thepage}}%
+%\undertext{\hbox to\hsize{\sl\rightmark\hss}}%
+%\undertext{\hbox to\evensidemargin{\hss\rm\thepage}}%
+\kern-\evensidemargin}
+%\def\chaptermark##1{\markboth {\uppercase{\ifnum \c@secnumdepth >\m@ne
+%      \@chapapp\ \thechapter. \ \fi ##1}}{}}%
+%\def\sectionmark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\z@
+%   \thesection. \ \fi ##1}}}}
+\def\chaptermark##1{\markboth {\ifnum \c@secnumdepth >\m@ne
+      \@chapapp\ \thechapter\ \ \fi ##1}{}}%
+\def\sectionmark##1{\markright {\ifnum \c@secnumdepth >\z@
+   \thesection\ \ \fi ##1}}}
+
+%\def\today{\number\day\space\ifcase\month\or
+%  Januarie\or Februarie\or Maart\or April\or Mei\or Junie\or
+%  Julie\or Augustus\or September\or Oktober\or November\or Desember\fi
+%  \space\number\year}
+
+\oddsidemargin 0cm
+\evensidemargin 0cm
+%\marginparwidth 1in
+\topmargin 0mm
+\textwidth 210mm
+\advance\textwidth -2in
+\advance\textwidth -\oddsidemargin
+\advance\textwidth -\evensidemargin
+%\advance\textwidth -\marginparwidth
+\textheight 297mm
+\advance\textheight -2in
+%\advance\textheight -\topmargin
+%\advance\textheight -\headheight
+%\advance\textheight -\headsep
+\advance\textheight -\footskip
+\parindent 0mm
+\parskip 2mm plus 1pt
+\setlength{\voffset}{-2.5 cm}
+
+\@addtoreset{equation}{section}
+\def\theequation{\thesection.\arabic{equation}}
+
+\newtheorem{stelling}{Stelling}[section]
+\let\pi@stelling=\stelling
+\def\stelling{\pi@stelling\hfill\\\noindent}
+%\let\pi@endstelling=\endstelling
+%\def\endstelling{\unskip\hfill\rule{2mm}{2mm}\pi@endstelling}
+%\newenvironment{bewys}{\par\noindent\bf Bewys:\\\noindent\rm}{}
+\newenvironment{bewys}{\begin{description}\item[Bewys:]\ \\\rm}{\ifvmode\else\unskip\fi\hfill\rule{2mm}{2mm}\end{description}}
+
+\newtheorem{probleem}{Probleem}[section]
+\let\pi@probleem=\probleem
+\def\probleem{\pi@probleem\hfill\\\noindent}
+%\let\pi@endprobleem=\endprobleem
+%\def\endprobleem{\unskip\hfill\mbox{$\Box$}\pi@endprobleem}
+%\newenvironment{oplossing}{\par\noindent\bf Oplossing:\\\noindent\rm}{}
+\newenvironment{oplossing}{\begin{description}\item[Oplossing:]\ \\\rm}{\ifvmode\else\unskip\fi\hfill\mbox{$\Box$}\end{description}}
+
+\newcounter{subequation}
+\def\thesubequation{\alph{subequation}}
+\def\subeq{\stepcounter{subequation}%
+\global\let\@currentlabel=\thesubequation%
+\global\let\pi@eqnnum=\@eqnnum%
+\global\def\@eqnnum{{\rm (\thesubequation)}\global\let\@eqnnum=\pi@eqnnum}%
+\addtocounter{equation}{-1}}
+\def\resetsubeq{\setcounter{subequation}{0}}
+\@addtoreset{subequation}{probleem}
+
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
+
+\def\thefigure{\thesection.\@arabic\c@figure}
+\@addtoreset{figure}{section}
+\def\thetable{\thesection.\@arabic\c@table}
+\@addtoreset{table}{section}
+\def\Ref#1{(\ref{#1})}
+
+\long\def\belangrik#1{{%
+   \leavevmode\vskip5mm\noindent
+   \hbox to\textwidth{\hfil
+      \fboxsep=5mm
+      \fbox{%
+         \vbox{%
+            \hsize=\textwidth
+            \advance\hsize -2\fboxsep
+            \advance\hsize -2\fboxrule
+            \advance\hsize -2cm\noindent\em #1
+            }%
+         }%
+      \hfil}%
+   \vskip1mm}\noindent}
+
+\def\@makechapterhead#1{ \vspace*{50pt} { \parindent 0pt \raggedright
+ \ifnum \c@secnumdepth >\m@ne \LARGE \bf \@chapapp{} \thechapter \par
+ \vskip 20pt \fi \Huge \bf #1\par
+ \nobreak \vskip 40pt } }
+
+\def\bold#1{\mbox{\boldmath$#1$\unboldmath}}                 %  $ ... $
+\def\Bold#1{\mbox{\boldmath$\displaystyle #1$\unboldmath}}   % $$ ... $$
+
+\def\degrees{\ifmmode^\circ\else$^\circ$\fi}
+
+\def\theenumi{\arabic{enumi}}
+\def\p@enumi{(\theenumi)}
+\def\labelenumi{(\theenumi)}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{(\theenumi)(\theenumii)}
+\def\labelenumii{(\theenumii)}
+
+\def\Frac#1#2{\leavevmode\kern.1em
+   \raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+   /\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}

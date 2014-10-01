@@ -1,0 +1,89 @@
+\documentclass[10pt]{article}
+\usepackage[ruled, linesnumbered,vlined]{algorithm2e}
+\usepackage{Jan1, epsfig, subfigure, amssymb, multirow, algorithmic,amsmath}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+% Replacing BibLaTeX with Biber
+\usepackage[useprefix=true,maxnames=99,backend=biber,style=orion]{biblatex}
+
+\textwidth 150mm
+\textheight 225mm
+\voffset 1mm
+\oddsidemargin 5mm
+\evensidemargin 5mm
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+
+
+
+
+
+\title{TITLE}
+
+\author{AUTHOR1$^*$, AUTHOR2$^*$ \& AUTHOR3\thanks{Department of Industrial Engineering, Stellenbosch University, Private Bag X1, Matieland, 7602, South Africa, emails: {\tt aabbccdd@sun.ac.za}, {\tt 11223344@sun.ac.za}, {\tt qwerty@sun.ac.za}}}
+
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+
+
+% Add the two .bib files
+\addbibresource{references.bib}
+\addbibresource{references2.bib}
+
+\begin{document}
+\setcounter{page}{1}
+
+\maketitle
+
+\begin{abstract}
+
+\blindtext
+
+\end{abstract}
+
+{\bf Keywords:}\ \ KEYWORDS HERE.
+
+
+\pagestyle{myheadings}
+
+
+\section{Introduction}
+
+\Blindtext
+
+\section{Citing from refernces.bib}
+
+I am citing~\cite{finite}. I also citing the work by Grobler and Mynhardt~\cite{critical}.
+
+\section{Citing from refernces2.bib}
+
+I am citing~\cite{BrighamRCDuttonRP1990}. I also citing the work by Brooks~\cite{BrooksRL1941}.
+
+
+%%%%%%%%%%%%%%%%%%
+%
+% how-to examples:
+%
+%%%%%%%%%%%%%%%%%%
+
+\section{Figures, tables and pseudo code}
+
+\input{examples/algorithms}
+\input{examples/figures}
+\input{examples/tables}
+
+%%%%%%%%%%%%%%%%%%
+
+
+
+\appto\bibfont{\footnotesize}
+  \printbibliography
+
+
+\end{document}

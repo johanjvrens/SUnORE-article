@@ -1,0 +1,30 @@
+Results are presented in Table~\ref{circulants} for all non-isomorphic, connected circulants of orders $n \leq 11$. 
+
+\begin{table}[htb!]\centering\footnotesize
+ \begin{tabular}{crrr|@{\hspace{0.1cm}}r@{\hspace{0.1cm}}r@{\hspace{0.3cm}}r@{\hspace{0.1cm}}r@{\hspace{0.1cm}}r@{\hspace{0.1cm}}|rrrr}\hline
+	&		&		&		&		\multicolumn{5}{c|}{BR}					&	\multicolumn{4}{c}{BB}							\\
+Graph	&	$n$	&	$|R|$	&	$\gamma_s$	&	&	Calls	&	&	Time	&	&	LB	&	UB	&	Calls	&	Time	\\\hline
+${\cal{C}}_3\langle1\rangle$	&	3	&	1	&	1	&	&	\,3	&	&	0.01	&	&	1	&	1	&	\,3	&	0.01	\\\hline
+${\cal{C}}_4\langle1\rangle$	&	4	&	0	&	2	&	&	\,21	&	&	0.01	&	&	2	&	2	&	\,21	&	0.01	\\
+${\cal{C}}_4\langle1,2\rangle$	&	4	&	1	&	1	&	&	\,3	&	&	0.01	&	&	1	&	2	&	\,3	&	0.01	\\\hline
+${\cal{C}}_5\langle1\rangle$	&	5	&	0	&	3	&	&	\,51	&	&	0.03	&	&	2	&	3	&	\,51	&	0.02	\\
+${\cal{C}}_5\langle1,2\rangle$	&	5	&	1	&	1	&	&	\,3	&	&	0.01	&	&	1	&	1	&	\,3	&	0.01	\\\hline
+${\cal{C}}_6\langle1\rangle$	&	6	&	0	&	3	&	&	\,95	&	&	0.04	&	&	2	&	3	&	\,83	&	0.04	\\
+${\cal{C}}_6\langle1,2\rangle$	&	6	&	0	&	2	&	&	\,43	&	&	0.02	&	&	2	&	2	&	\,43	&	0.02	\\
+${\cal{C}}_6\langle1,3\rangle$	&	6	&	0	&	3	&	&	\,85	&	&	0.04	&	&	2	&	3	&	\,83	&	0.04	\\
+${\cal{C}}_6\langle2,3\rangle$	&	6	&	0	&	2	&	&	\,57	&	&	0.03	&	&	2	&	2	&	\,43	&	0.02	\\
+${\cal{C}}_6\langle1,2,3\rangle$	&	6	&	1	&	1	&	&	\,3	&	&	0.01	&	&	1	&	1	&	\,3	&	0.01	\\\hline
+${\cal{C}}_7\langle1\rangle$	&	7	&	0	&	3	&	&	\,199	&	&	0.09	&	&	3	&	3	&	\,149	&	0.07	\\
+${\cal{C}}_7\langle1,2\rangle$	&	7	&	0	&	2	&	&	\,109	&	&	0.07	&	&	2	&	3	&	\,75	&	0.03	\\
+${\cal{C}}_7\langle1,2,3\rangle$	&	7	&	1	&	1	&	&	\,3	&	&	0.01	&	&	1	&	1	&	\,3	&	0.01	\\\hline
+${\cal{C}}_8\langle1\rangle$	&	8	&	0	&	4	&	&	\,411	&	&	0.21	&	&	3	&	4	&	\,285	&	0.17	\\
+${\cal{C}}_8\langle1,2\rangle$	&	8	&	0	&	3	&	&	\,217	&	&	0.14	&	&	2	&	3	&	\,189	&	0.11	\\
+${\cal{C}}_8\langle1,3\rangle$	&	8	&	0	&	4	&	&	\,345	&	&	0.16	&	&	2	&	4	&	\,319	&	0.24	\\
+${\cal{C}}_8\langle1,4\rangle$	&	8	&	0	&	3	&	&	\,317	&	&	0.18	&	&	2	&	3	&	\,199	&	0.11	\\
+${\cal{C}}_8\langle1,2,3\rangle$	&	8	&	0	&	2	&	&	\,73	&	&	0.05	&	&	2	&	2	&	\,73	&	0.03	\\
+${\cal{C}}_8\langle1,2,4\rangle$	&	8	&	0	&	2	&	&	\,117	&	&	0.08	&	&	2	&	3	&	\,73	&	0.03	\\
+${\cal{C}}_8\langle1,3,4\rangle$	&	8	&	0	&	2	&	&	\,87	&	&	0.06	&	&	2	&	2	&	\,73	&	0.03	\\
+${\cal{C}}_8\langle1,2,3,4\rangle$	&	8	&	1	&	1	&	&	\,3	&	&	0.00	&	&	1	&	1	&	\,3	&	0.02	\\\hline
+ \end{tabular}\vspace{-0.21cm}
+\caption{Results obtained by means of the algorithm in BR and BB for all non-isomorphic, connected circulants of orders not exceeding $n = 8$. The columns labelled LB and UB contain the initial values of the global variables {\sf LowerBound} and  {\sf UpperBound} for the branch-and-bound algorithm. The column labelled $|R|$ contain the number of redundancy classes in each graph.} \label{circulants}
+\end{table}

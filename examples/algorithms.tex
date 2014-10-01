@@ -1,0 +1,16 @@
+We call a connected subgraph of a tree induced by a support vertex and its adjacent leaves an {\em end-cluster} of the tree.  The simple heuristic presented in pseudo-code form as Algorithm~\ref{heuristic} may be used to find an upper bound on the secure domination number of a connected graph.  The heuristic is based on the fact that an end-cluster of a tree is securely dominated by its leaves.  Therefore a secure dominating set $X$ of a graph $G$ may be obtained by computing a spanning tree of $G$ and then including all the leaves of this tree in $X$, after which all end-clusters of the tree may be pruned away to form a smaller tree.  The same pruning procedure may be applied to this smaller tree, after having inserted the newly formed leaves of this smaller tree into $X$, and so on, until all the vertices of the original spanning tree have been pruned away.
+
+\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+\begin{algorithm}[htb]
+ \Input{A connected graph $G$.}
+\Output{A secure dominating set of $G$.}
+$X \leftarrow \emptyset$\;
+$T \leftarrow$ A spanning tree of $G$\;
+\While{$V(T) \neq \emptyset$}{
+Insert all leaves of $T$ into $X$\;
+Update $T$ by removing all its end-clusters\;
+}
+\Return[$X$]\;
+\caption{Heuristic}
+\label{heuristic}
+\end{algorithm}
